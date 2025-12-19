@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import ShopHero from "../components/ShopHero"
-import Filtersbar from "../components/FiltersBar";
+import Filtersbar from "../components/Filtersbar";
 import ProductCard from "../components/ProductCard";
 import products from "../data/products.json"
 const ShopCategory = () => {

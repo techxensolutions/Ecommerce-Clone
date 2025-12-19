@@ -1,7 +1,8 @@
 import { X, Minus,Plus } from "lucide-react"
 import { useState } from "react"
 import SidebarItem from "./SidebarItem"
-// import { useSelector } from "react-redux"
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 const Sidebar = ({isOpen, onClose}) => {
     const [cartItems, setCartItems] = useState([
@@ -13,8 +14,7 @@ const Sidebar = ({isOpen, onClose}) => {
       quantity: 1,
     },
   ])
-//   const {products}=useSelector((state)=>state.cart);
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const {products, totalPrice}=useSelector((state)=>state.cart);
   return (
     <>
       {/* Backdrop */}
@@ -41,11 +41,11 @@ const Sidebar = ({isOpen, onClose}) => {
         {/* Cart Items */}
         <div className="flex flex-col h-[calc(100%-72px)] overflow-y-auto">
           <div className="flex-1 px-6 py-6">
-            {cartItems.length === 0 ? (
+            {products.length === 0 ? (
               <p className="text-muted-foreground text-center py-12">Your cart is empty</p>
             ) : (
               <div className="space-y-6">
-                {cartItems.map((item) => (
+                {products.map((item) => (
                   <SidebarItem key={item.name} item={item}/>
                 ))}
               </div>
@@ -53,12 +53,12 @@ const Sidebar = ({isOpen, onClose}) => {
           </div>
 
           {/* Cart Footer */}
-          {cartItems.length > 0 && (
+          {products.length > 0 && (
             <div className="border-t px-6 py-6 bg-white">
               {/* Subtotal */}
               <div className="flex items-center justify-between mb-4">
                 <span className="text-lg font-semibold">Cart subtotal:</span>
-                <span className="text-xl font-bold">£{subtotal.toFixed(2)}</span>
+                <span className="text-xl font-bold">£{totalPrice.toFixed(2)}</span>
               </div>
 
               {/* View Cart Link */}
@@ -69,11 +69,11 @@ const Sidebar = ({isOpen, onClose}) => {
               </div>
 
               {/* Checkout Button */}
-              <button
-                className="w-full bg-[#fdb515] hover:bg-[#e5a313] text-white text-lg font-semibold h-12 mb-4"
+              <Link to={"/checkout/cart"}
+                className="block text-center w-full bg-[#fdb515] hover:bg-[#e5a313] text-white text-lg font-semibold py-3 rounded-full mb-4"
               >
                 Go to Checkout
-              </button>
+              </Link>
 
               {/* OR Divider */}
               <div className="text-center text-sm text-muted-foreground mb-4">OR</div>

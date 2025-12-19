@@ -1,6 +1,7 @@
 import { Minus,Plus } from "lucide-react"
 
 const SidebarItem = ({item}) => {
+  console.log('first', item)
   return (
     <>
      <div className="flex gap-4">

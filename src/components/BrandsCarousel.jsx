@@ -41,8 +41,8 @@ export default function BrandsCarousel() {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                height={"50px"}
-                width={"auto"}
+                height={"auto"}
+                width={"120px"}
                 className="h-12 object-contain"
               />
             </div>

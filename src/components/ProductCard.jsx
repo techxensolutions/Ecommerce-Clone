@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ product }) => {
   return (
     <>
-      <Link to={`/product/${product.name.replaceAll(' ','-')}`} className="block rounded-lg hover:shadow-lg transition-shadow">
+      <Link to={`/product/${product.name.replaceAll(' ','_')}`} className="block rounded-lg hover:shadow-lg transition-shadow">
         <div className="relative mb-4">
           <img
             src={product.image}
@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
           </button>
         </div>
         <h3 className="mb-2 line-clamp-2">{product.name}</h3>
-        <p className="font-bold text-lg text-gray-500">{product.price}</p>
+        <p className="font-bold text-lg text-gray-500">£{product.price.toFixed(2)}</p>
       </Link>
     </>
   );

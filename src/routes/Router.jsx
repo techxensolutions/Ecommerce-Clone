@@ -4,6 +4,7 @@ import ShopCategory from "../pages/ShopCategory"
 import LandingPage from "../pages/LandingPage"
 import LocationPage from "../pages/LocationPage"
 import CategoryProduct from "../pages/CategoryProduct"
+import Checkout from "../pages/Checkout"
 
 const router = createBrowserRouter(
   [
@@ -26,6 +27,10 @@ const router = createBrowserRouter(
         {
           path:"/locations",
           element:<LocationPage/>
+        },
+        {
+          path:"/checkout/cart",
+          element:<Checkout/>
         },
       ]
     }

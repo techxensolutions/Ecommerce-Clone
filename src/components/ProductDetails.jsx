@@ -1,7 +1,10 @@
 import { ChevronDown, MessageCircle } from "lucide-react"
 import { useState } from "react"
-const ProductDetails = () => {
+import { useDispatch } from "react-redux";
+import { addProduct } from "../store/cartSlice";
+const ProductDetails = ({product}) => {
     const [expandedSection, setExpandedSection] = useState("description");
+    const dispatch=useDispatch();
   return (
     <>
      <div>
@@ -12,7 +15,7 @@ const ProductDetails = () => {
 
             <div className="text-3xl font-bold mb-6">£63.00</div>
 
-            <button className="w-full h-12 bg-[#FFA500] rounded-full hover:bg-[#FF8C00] text-white font-semibold mb-3">
+            <button onClick={()=>dispatch(addProduct(product))} className="w-full h-12 bg-[#FFA500] rounded-full hover:bg-[#FF8C00] text-white font-semibold mb-3">
               ADD TO CART
             </button>
 

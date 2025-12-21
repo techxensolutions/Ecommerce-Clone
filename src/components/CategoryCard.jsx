@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 const CategoryCard = ({ category }) => {
   return (
     <>
-      <a
-        href="#"
+      <Link
+        to={`/category/${category.name.toLowerCase().replaceAll(" ","_")}`}
         className="relative group overflow-hidden rounded-lg h-96 block"
       >
         <img
@@ -13,7 +15,7 @@ const CategoryCard = ({ category }) => {
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
           <h3 className="text-white text-5xl font-bold">{category.name}</h3>
         </div>
-      </a>
+      </Link>
     </>
   );
 };

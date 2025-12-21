@@ -10,8 +10,6 @@ export default function Arrival() {
 
       <div className="relative">
         <button
-          variant="ghost"
-          size="icon"
           className="absolute -left-4 top-1/2 -translate-y-1/2 z-10"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -24,8 +22,6 @@ export default function Arrival() {
         </div>
 
         <button
-          variant="ghost"
-          size="icon"
           className="absolute -right-4 top-1/2 -translate-y-1/2 z-10"
         >
           <ChevronRight className="w-6 h-6" />

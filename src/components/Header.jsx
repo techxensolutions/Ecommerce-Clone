@@ -49,7 +49,7 @@ export default function Header() {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-white px-18 py-2 pb-4 mx-auto relative">
+      <nav className="bg-white px-18 py-2 pb-4 mx-auto relative" onMouseLeave={()=>setCategory("")}>
         <div className="max-w-7xl mx-auto">
           <ul className="flex items-center justify-between text-sm text-gray-700">
             {navbar_categories.map((category)=>{

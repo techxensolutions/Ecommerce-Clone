@@ -5,15 +5,6 @@ import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 const Sidebar = ({isOpen, onClose}) => {
-    const [cartItems, setCartItems] = useState([
-    {
-      id: "1",
-      name: "Mamas & Papas Mini Rattle - Lenny Lion",
-      price: 8.0,
-      image: "/lion-rattle-toy.jpg",
-      quantity: 1,
-    },
-  ])
   const {products, totalPrice}=useSelector((state)=>state.cart);
   return (
     <>
@@ -63,13 +54,13 @@ const Sidebar = ({isOpen, onClose}) => {
 
               {/* View Cart Link */}
               <div className="text-center mb-4">
-                <a href="/cart" className="text-sm underline hover:no-underline">
+                <Link to="/checkout/cart" className="text-sm underline hover:no-underline">
                   View and Edit Cart
-                </a>
+                </Link>
               </div>
 
               {/* Checkout Button */}
-              <Link to={"/checkout/cart"}
+              <Link to={"/checkout"}
                 className="block text-center w-full bg-[#fdb515] hover:bg-[#e5a313] text-white text-lg font-semibold py-3 rounded-full mb-4"
               >
                 Go to Checkout
@@ -80,23 +71,13 @@ const Sidebar = ({isOpen, onClose}) => {
 
               {/* PayPal Button */}
               <button className="w-full bg-[#0070ba] hover:bg-[#005ea6] text-white rounded-md h-12 flex items-center justify-center mb-3 transition-colors">
-                <svg className="w-24 h-6" viewBox="0 0 100 32" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill="currentColor"
-                    d="M12 4.917L4.2 24.467h4.8l1.6-4.267h5.467L17.667 24.467h4.8L14.667 4.917H12zm-1.2 11.2l2-5.334 2 5.334h-4zM27.333 24.467h4.534V4.917h-4.534v19.55zm21.067-7.734c0-4.4-3.2-7.866-7.467-7.866-4.266 0-7.466 3.466-7.466 7.866 0 4.4 3.2 7.867 7.466 7.867 4.267 0 7.467-3.467 7.467-7.867zm-10.4 0c0-2 1.467-3.6 3.467-3.6s3.466 1.6 3.466 3.6c0 2-1.466 3.6-3.466 3.6s-3.467-1.6-3.467-3.6z"
-                  />
-                </svg>
+                <img src="/images/paypal.png" alt="" />
               </button>
 
               {/* Amazon Pay Button */}
               <button className="w-full bg-[#ffd814] hover:bg-[#f7ca00] text-gray-800 rounded-md h-12 flex items-center justify-center gap-2 font-semibold transition-colors mb-2">
                 <span>Pay with</span>
-                <svg className="w-16 h-5" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill="currentColor"
-                    d="M62.5 14.667c0 3.6-2.933 6.133-6.4 6.133-1.867 0-3.333-.667-4.4-1.867l.933-1.333c.8.933 1.867 1.467 3.333 1.467 2.267 0 4-1.6 4-4.4V14.4c-.933 1.2-2.4 2-4.133 2-2.933 0-5.2-2.267-5.2-5.2s2.267-5.2 5.2-5.2c1.733 0 3.2.8 4.133 2V6.4h2.534v8.267zM53.867 11.2c0 1.733 1.333 3.067 3.067 3.067 1.733 0 3.066-1.334 3.066-3.067 0-1.733-1.333-3.067-3.066-3.067-1.734 0-3.067 1.334-3.067 3.067zM73.867 6.4v10.133h-2.534V15.2c-.933 1.2-2.4 2-4.133 2-2.933 0-5.2-2.267-5.2-5.2s2.267-5.2 5.2-5.2c1.733 0 3.2.8 4.133 2V6.4h2.534zm-9.334 4.8c0 1.733 1.334 3.067 3.067 3.067s3.067-1.334 3.067-3.067c0-1.733-1.334-3.067-3.067-3.067s-3.067 1.334-3.067 3.067zM20.133 6.4l-5.6 10.133h-2.8L6.133 6.4h2.934l4 7.333 4-7.333h2.933zM85.733 6.4v10.133h-2.4c0-1.067-.8-1.867-1.866-1.867-1.067 0-1.867.8-1.867 1.867h-2.4c0-2.4 1.867-4.267 4.267-4.267 1.2 0 2.266.534 2.933 1.334V6.4h1.333z"
-                  />
-                </svg>
+                <img src="/images/amazonpay.svg" width={30} height={"auto"} alt="" />
                 <span>→</span>
               </button>
 

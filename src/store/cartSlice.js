@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const recalculateTotals = (state) => {
   state.totalQuantity = state.products.reduce((acc, p) => acc + p.quantity, 0);
   state.totalPrice = state.products.reduce((acc, p) => acc + p.price * p.quantity, 0);
-  state.actualTotal = state.products.reduce((acc, p) => acc + p.originalPrice * p.quantity, 0);
-  state.savings = state.totalPrice - state.actualTotal;
   state.shipping = state.totalPrice > 15000 ? 0 : 1000;
   state.total=state.totalPrice+state.shipping;
 };
@@ -15,7 +13,6 @@ const cartSlice = createSlice({
     totalQuantity: 0,
     totalPrice: 0,
     actualTotal:0,
-    savings:0,
     shipping:0,
     total:0
   },
@@ -23,15 +20,12 @@ const cartSlice = createSlice({
     addProduct(state, action) {
       const product = action.payload;
       const existing = state.products.find((p) => p._id === product._id);
-
       if (existing && existing.quantity<=existing.stock) {
         existing.quantity += 1;
       } else {
         state.products.push({ ...product, quantity: product.quantity || 1 });
       }
       recalculateTotals(state);
-      // state.totalQuantity += 1;
-      // state.totalPrice += product.price * (product.quantity || 1);
     },
     addProductByQuantity(state, action) {
       const {product,quantity} = action.payload;
@@ -73,11 +67,12 @@ recalculateTotals(state);
       // }
     },
     increaseQuantity(state, action){
+      console.log('first called')
       const {id}=action.payload;
       const product = state.products.find((p) => p._id === id);
+      console.log('first', state.products)
       if (product && product.quantity<product.stock) {
         product.quantity+=1;
-        // state.totalQuantity+=1;
       }
       recalculateTotals(state);
     },
@@ -86,10 +81,7 @@ recalculateTotals(state);
       const product = state.products.find((p) => p._id === id);
       if (product && product.quantity>1) {
         product.quantity-=1;
-        // state.totalQuantity-=1;
       }else if (product.quantity === 1) {
-      // state.totalQuantity -= 1;
-      // state.totalPrice -= product.price;
       state.products = state.products.filter((p) => p._id !== id);
     }
     recalculateTotals(state);

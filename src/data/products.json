@@ -1,26 +1,34 @@
 [
   {
+    "_id":1,
     "name": "Mamas & Papas Anti-Allergy Quilted Cotbed Mattress Protector",
     "price": 25.00,
     "image": "/images/white-quilted-mattress-protector.jpg",
+    "stock":3,
     "outOfStock": true
   },
   {
+    "_id":2,
     "name": "Mamas & Papas Mini Rattle - Lenny Lion",
     "price": 8.00,
     "image": "/images/cute-yellow-lion-baby-rattle-toy.jpg",
+    "stock":4,
     "outOfStock": true
   },
   {
+    "_id":3,
     "name": "Mamas & Papas Safetyfirst Wildlife Activity Triangle Toy",
     "price": 32.00,
     "image": "/images/colorful-baby-activity-triangle-toy-animals.jpg",
+    "stock":2,
     "outOfStock": true
   },
   {
+    "_id":4,
     "name": "Mamas & Papas Welcome to the World Snuggle Nursing Pillow - Leaf",
     "price": 44.00,
     "image": "/images/grey-nursing-pillow-cushion.jpg",
+    "stock":7,
     "outOfStock": false
   }
 ]

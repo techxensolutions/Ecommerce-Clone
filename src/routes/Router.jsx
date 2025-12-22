@@ -9,6 +9,8 @@ import Shipping from "../pages/Shipping"
 import ReviewPayment from "../pages/ReviewPayment"
 import BlankLayout from "../BlankLayout"
 import Checkout from "../pages/Checkout"
+import Login from "../pages/Login"
+import Authentication from "../pages/Authentication"
 
 const router = createBrowserRouter(
   [
@@ -36,20 +38,19 @@ const router = createBrowserRouter(
           path:"/checkout/cart",
           element:<Cart/>
         },
-        
+        {
+          path:"/login",
+          element:<Authentication/>
+        },
+        {
+          path:"/signup",
+          element:<Authentication/>
+        },
       ]
     },
     {
       element:<BlankLayout/>,
       children:[
-        {
-          path:"/checkout/shipping",
-          element:<Shipping/>
-        },
-        {
-          path:"/checkout/payment",
-          element:<ReviewPayment/>
-        },
         {
           path:"/checkout",
           element:<Checkout/>

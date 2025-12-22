@@ -1,7 +1,9 @@
 import { Minus,Plus } from "lucide-react"
+import { useDispatch } from "react-redux"
+import { decreaseQuantity, increaseQuantity } from "../store/cartSlice";
 
 const SidebarItem = ({item}) => {
-  console.log('first', item)
+  const dispatch=useDispatch();
   return (
     <>
      <div className="flex gap-4">
@@ -25,7 +27,7 @@ const SidebarItem = ({item}) => {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center border border-gray-300 rounded-full">
                           <button
-                            onClick={() => onUpdateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                            onClick={() => dispatch(decreaseQuantity({ id: item._id}))}
                             className="px-3 py-1 hover:bg-gray-100 rounded-l-full transition-colors"
                             aria-label="Decrease quantity"
                           >
@@ -33,7 +35,7 @@ const SidebarItem = ({item}) => {
                           </button>
                           <span className="px-4 py-1 min-w-12 text-center">{item.quantity}</span>
                           <button
-                            onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+                            onClick={() => dispatch(increaseQuantity({ id: item._id}))}
                             className="px-3 py-1 hover:bg-gray-100 rounded-r-full transition-colors"
                             aria-label="Increase quantity"
                           >
@@ -41,7 +43,7 @@ const SidebarItem = ({item}) => {
                           </button>
                         </div>
                         <button
-                          onClick={() => onRemoveItem(item.id)}
+                          onClick={() => onRemoveItem(item._id)}
                           className="text-sm underline hover:no-underline text-foreground"
                         >
                           Remove

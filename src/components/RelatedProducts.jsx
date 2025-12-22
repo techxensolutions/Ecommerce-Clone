@@ -10,7 +10,7 @@ const RelatedProducts = () => {
         </h2>
         <div className="grid md:grid-cols-4 gap-6 w-full">
           {products.map((product) => (
-            <ProductCard product={product} />
+            <ProductCard key={product._id} product={product} />
           ))}
         </div>
       </div>

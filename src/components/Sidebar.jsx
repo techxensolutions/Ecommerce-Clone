@@ -37,7 +37,7 @@ const Sidebar = ({isOpen, onClose}) => {
             ) : (
               <div className="space-y-6">
                 {products.map((item) => (
-                  <SidebarItem key={item.name} item={item}/>
+                  <SidebarItem key={item._id} item={item}/>
                 ))}
               </div>
             )}
